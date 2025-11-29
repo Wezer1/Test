@@ -51,7 +51,7 @@ public class IntegralCalculator {
         }
     }
 
-    private static double calculateIntegral(int methodIndex) {
+    public static double calculateIntegral(int methodIndex) {
         int n = 1; // Начальное количество разбиений
         double integral_n = 0.0;
         double integral_2n;
@@ -91,7 +91,7 @@ public class IntegralCalculator {
         return integral_2n;
     }
 
-    private static double calculateByMethod(int methodIndex, int n) {
+    public static double calculateByMethod(int methodIndex, int n) {
         switch (methodIndex) {
             case 0: return calculateRectangle(n);
             case 1: return calculateSimpson(n);
@@ -100,7 +100,7 @@ public class IntegralCalculator {
         }
     }
 
-    private static double calculateRectangle(int n) {
+    public static double calculateRectangle(int n) {
         double h = (B - A) / n;
         double sum = 0.0;
         for (int i = 0; i < n; i++) {
@@ -111,7 +111,7 @@ public class IntegralCalculator {
         return sum * h;
     }
 
-    private static double calculateSimpson(int n) {
+    public static double calculateSimpson(int n) {
         double h = (B - A) / n;
         double sum = f(A) + f(B);
         for (int i = 1; i < n; i++) {
@@ -126,7 +126,7 @@ public class IntegralCalculator {
         return sum * h / 3.0;
     }
 
-    private static double calculateTrapezoidal(int n) {
+    public static double calculateTrapezoidal(int n) {
         double h = (B - A) / n;
         double sum = 0.5 * (f(A) + f(B));
         for (int i = 1; i < n; i++) {
@@ -137,13 +137,13 @@ public class IntegralCalculator {
         return sum * h;
     }
 
-    private static double f(double x) {
+    public static double f(double x) {
         double numerator = x * x + Math.sin(0.48 * (x + 2.0));
         double denominator = Math.exp(x * x + 0.38);
         return numerator / denominator;
     }
 
-    private static int getLetterIndex(String name) {
+    public static int getLetterIndex(String name) {
         if (name == null || name.isEmpty()) {
             return 0;
         }
